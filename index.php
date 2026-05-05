@@ -5,6 +5,7 @@
     <title>اكتشف السعودية</title>
 <link rel="stylesheet" href="css/style.css">
 
+
 </head>
 
 <body id="body">
@@ -17,7 +18,7 @@
         <li><a href="gallery.php">معرض المناطق</a></li>
         <li><a href="admin/login.php">دخول المشرف</a></li>
     </ul>
-<button onclick="toggleMode()" style="margin-right: auto;">🌙</button>
+<button onclick="toggleMode()" class="mode-btn">🌙</button></nav>
 </nav>
 <!-- 🏠 Home Intro Section -->
 <section class="home-intro">
@@ -63,4 +64,7 @@
 
 <script src="js/script.js"></script>
 </body>
+<footer class="footer">
+    <p>© اكتشف السعودية - جامعة الملك سعود</p>
+</footer>
 </html>
