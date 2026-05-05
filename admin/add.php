@@ -30,29 +30,51 @@ header("Location: dashboard.php?msg=added");
 <head>
     <meta charset="UTF-8">
     <title>إضافة محتوى</title>
-    <link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/style.css">
+
 </head>
-<body>
+<body id="body">
 
 <nav class="navbar">
     <h2>إضافة منطقة</h2>
+
     <ul>
         <li><a href="dashboard.php">رجوع</a></li>
+        <li><a href="logout.php">تسجيل الخروج</a></li>
     </ul>
+
+    <button type="button" onclick="toggleMode()" style="margin-right: auto;">🌙</button>
 </nav>
 
 <section class="login-box">
     <form method="POST">
 
-        <input type="text" name="name" placeholder="اسم المنطقة" required>
+        <label class="form-label">اسم المنطقة</label>
 
-        <input type="text" name="category" placeholder="التصنيف (حديثة/ساحلية/تاريخية)" required>
+        <input type="text" name="name" placeholder="مثال الدرعية" required>
 
-        <input type="text" name="city" placeholder="المدينة" required>
+        <label for="category" class="form-label">التصنيف</label>
 
-        <textarea name="description" placeholder="الوصف" required></textarea>
+        <select id="category" name="category" required>
+            <option value="" disabled selected>اختر التصنيف</option>
+            <option value="حديثة">حديثة</option>
+            <option value="ساحلية">ساحلية</option>
+            <option value="تاريخية">تاريخية</option>
+        </select>
 
-        <textarea name="landmarks" placeholder="المعالم" required></textarea>
+        <label class="form-label">المدينة</label>
+
+        <input type="text" name="city" placeholder="مثال الرياض" required>
+
+        <label class="form-label">الوصف</label>
+
+        <textarea name="description" placeholder="اكتب هنا وصف المنطقة" required></textarea>
+
+        <label class="form-label">المعالم</label>
+
+        <textarea name="landmarks" placeholder="اكتب اسم المعالم" required></textarea>
+
+        <label class="form-label">ارفق صورة</label>
 
         <input type="text" name="image" placeholder="مسار الصورة (مثال: images/test.jpg)" required>
 
@@ -60,6 +82,8 @@ header("Location: dashboard.php?msg=added");
 
     </form>
 </section>
+
+<script src="../js/script.js"></script>
 
 </body>
 </html>
