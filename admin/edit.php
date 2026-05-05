@@ -41,29 +41,50 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <title>تعديل</title>
-    <link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/style.css">
+
 </head>
-<body>
+<body id="body">
 
 <nav class="navbar">
     <h2>تعديل المنطقة</h2>
-    <ul>
+      <ul>
         <li><a href="dashboard.php">رجوع</a></li>
+        <li><a href="logout.php">تسجيل الخروج</a></li>
     </ul>
+
+    <button type="button" onclick="toggleMode()" style="margin-right: auto;">🌙</button>
 </nav>
 
 <section class="login-box">
     <form method="POST">
 
+        <label class="form-label">اسم المنطقة</label>
+
         <input type="text" name="name" value="<?php echo $region['name']; ?>" required>
 
-        <input type="text" name="category" value="<?php echo $region['category']; ?>" required>
 
-        <input type="text" name="city" value="<?php echo $region['city']; ?>" required>
+        <label for="category">التصنيف</label>
+
+        <select name="category" required>
+            <option value="حديثة" <?php if ($region['category'] == 'حديثة') echo 'selected'; ?>>حديثة</option>
+            <option value="ساحلية" <?php if ($region['category'] == 'ساحلية') echo 'selected'; ?>>ساحلية</option>
+            <option value="تاريخية" <?php if ($region['category'] == 'تاريخية') echo 'selected'; ?>>تاريخية</option>
+        </select>
+
+        <label class="form-label">المدينة</label>
+
+        <input id="city" type="text" name="city" value="<?php echo $region['city']; ?>" required>
+
+        <label class="form-label">الوصف</label>
 
         <textarea name="description"><?php echo $region['description']; ?></textarea>
 
+        <label class="form-label">المعالم</label>
+
         <textarea name="landmarks"><?php echo $region['landmarks']; ?></textarea>
+
+        <label class="form-label">ارفق صورة</label>
 
         <input type="text" name="image" value="<?php echo $region['image']; ?>">
 
@@ -72,5 +93,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </form>
 </section>
 
+<script src="../js/script.js"></script>
 </body>
 </html>
