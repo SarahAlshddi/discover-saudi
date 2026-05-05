@@ -8,7 +8,7 @@ $result = mysqli_query($conn, "SELECT * FROM regions");
 <head>
     <meta charset="UTF-8">
     <title>معرض المناطق</title>
-    <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
@@ -18,8 +18,10 @@ $result = mysqli_query($conn, "SELECT * FROM regions");
     <ul>
         <li><a href="index.php">الرئيسية</a></li>
         <li><a href="gallery.php">معرض المناطق</a></li>
+        <li><a href="admin/login.php">دخول المشرف</a></li>
+
     </ul>
-    <button onclick="toggleMode()">🌙</button>
+    <button onclick="toggleMode()" style="margin-right: auto;">🌙</button>
 </nav>
 
 <section class="hero">
