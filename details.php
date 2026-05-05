@@ -1,14 +1,15 @@
 <?php
+include "includes/db.php";
+
 $id = $_GET['id'];
 
-// بيانات مؤقتة (بعدين بنربطها بالداتابيس)
-$regions = [
-    1 => ["name" => "الرياض", "desc" => "عاصمة المملكة ومركزها الإداري", "img" => "images/riyadh.jpg"],
-    2 => ["name" => "جدة", "desc" => "مدينة ساحلية جميلة على البحر الأحمر", "img" => "images/jeddah.jpg"],
-    3 => ["name" => "العلا", "desc" => "منطقة تاريخية تحتوي على آثار قديمة", "img" => "images/alula.jpg"]
-];
+$query = "SELECT * FROM regions WHERE id = $id";
+$result = mysqli_query($conn, $query);
+$region = mysqli_fetch_assoc($result);
 
-$region = $regions[$id];
+if (!$region) {
+    die("المنطقة غير موجودة");
+}
 ?>
 
 <!DOCTYPE html>
@@ -16,7 +17,7 @@ $region = $regions[$id];
 <head>
     <meta charset="UTF-8">
     <title><?php echo $region['name']; ?></title>
-    <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
@@ -26,17 +27,25 @@ $region = $regions[$id];
     <ul>
         <li><a href="index.php">الرئيسية</a></li>
         <li><a href="gallery.php">معرض المناطق</a></li>
+        <li><a href="admin/login.php">دخول المشرف</a></li>
     </ul>
-    <button onclick="toggleMode()">🌙</button>
+    <button onclick="toggleMode()" style="margin-right: auto;">🌙</button>
 </nav>
 
 <section class="hero">
     <h1><?php echo $region['name']; ?></h1>
 </section>
 
-<section style="text-align:center; padding:40px;">
-    <img src="<?php echo $region['img']; ?>" width="300">
-    <p><?php echo $region['desc']; ?></p>
+<section class="details-box">
+    <img src="<?php echo $region['image']; ?>" alt="<?php echo $region['name']; ?>">
+
+    <h2><?php echo $region['city']; ?></h2>
+
+    <h3>معلومات عن المنطقة</h3>
+    <p><?php echo $region['description']; ?></p>
+
+    <h3>المعالم</h3>
+    <p><?php echo $region['landmarks']; ?></p>
 </section>
 
 <script src="js/script.js"></script>
