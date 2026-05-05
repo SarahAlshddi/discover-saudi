@@ -34,8 +34,7 @@ $result = mysqli_query($conn, "SELECT * FROM regions");
         <li><a href="add.php">إضافة محتوى</a></li>
         <li><a href="logout.php">تسجيل الخروج</a></li>
     </ul>
-    <button onclick="toggleMode()" style="margin-right: auto;">🌙</button>
-</nav>
+<button onclick="toggleMode()" class="mode-btn">🌙</button></nav>
 
 <section class="admin-container">
     <h1>إدارة المحتوى</h1>
@@ -76,4 +75,7 @@ $result = mysqli_query($conn, "SELECT * FROM regions");
 
 <script src="../js/script.js"></script>
 </body>
+<footer class="footer">
+    <p>© اكتشف السعودية - جامعة الملك سعود</p>
+</footer>
 </html>
