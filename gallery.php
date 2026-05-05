@@ -21,8 +21,7 @@ $result = mysqli_query($conn, "SELECT * FROM regions");
         <li><a href="admin/login.php">دخول المشرف</a></li>
 
     </ul>
-    <button onclick="toggleMode()" style="margin-right: auto;">🌙</button>
-</nav>
+<button onclick="toggleMode()" class="mode-btn">🌙</button></nav>
 
 <section class="hero">
     <h1>معرض المناطق</h1>
@@ -41,7 +40,8 @@ $result = mysqli_query($conn, "SELECT * FROM regions");
 <?php while ($row = mysqli_fetch_assoc($result)) { ?>
     <div class="region-card" data-category="<?php echo $row['category']; ?>">
         <img src="<?php echo $row['image']; ?>" alt="<?php echo $row['name']; ?>">
-        <h3><?php echo $row['name']; ?></h3>
+<p class="card-location"><?php echo $row['city']; ?></p>
+<h3><?php echo $row['name']; ?></h3>
         <p><?php echo $row['description']; ?></p>
         <a href="details.php?id=<?php echo $row['id']; ?>">عرض التفاصيل</a>
     </div>
@@ -51,4 +51,7 @@ $result = mysqli_query($conn, "SELECT * FROM regions");
 
 <script src="js/script.js"></script>
 </body>
+<footer class="footer">
+    <p>© اكتشف السعودية - جامعة الملك سعود</p>
+</footer>
 </html>
