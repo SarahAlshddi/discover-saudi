@@ -190,8 +190,13 @@ button {
     border-radius: 8px;
     cursor: pointer;
     text-decoration: none;
+    transition: 0.2s;
 }
-
+.filter-buttons button:hover,
+.filter-buttons a:hover {
+    transform: scale(1.05);
+    background-color: #083528;
+}
 .gallery {
     display: flex;
     flex-wrap: wrap;
@@ -240,7 +245,10 @@ button {
     border-radius: 8px;
     text-decoration: none;
 }
-
+.region-card a:hover {
+    transform: scale(1.08);
+    background-color: #083528 !important;
+}
 /* Details Page */
 .details-box {
     width: 70%;
@@ -582,4 +590,25 @@ button {
 
     font-size: 14px;
     font-weight: 500;
+}.region-card {
+    transition: 0.2s;
+}
+
+.region-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.12);
+}
+.dark .card {
+    background: #1e1e1e;
+    color: white;
+    box-shadow: 0 4px 12px rgba(255,255,255,0.05);
+}
+
+.dark .card h3,
+.dark .card p {
+    color: white;
+}
+.dark .footer {
+    background: #1e1e1e;
+    color: #ccc;
 }
