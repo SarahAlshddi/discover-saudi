@@ -26,17 +26,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <title>تسجيل دخول المشرف</title>
-    <link rel="stylesheet" href="../css/style.css">
-</head>
-<body>
+<link rel="stylesheet" href="../css/style.css">
 
+</head>
+<body class="login-page">
 <nav class="navbar">
     <h2>لوحة المشرف</h2>
     <ul>
         <li><a href="../index.php">الرئيسية</a></li>
     </ul>
+<button onclick="toggleMode()" class="mode-btn">🌙</button>
 </nav>
-
 <section class="login-box">
     <h2>تسجيل دخول المشرف</h2>
 
@@ -54,6 +54,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <button type="submit">دخول</button>
     </form>
 </section>
-
+<script src="../js/script.js"></script>
 </body>
+<footer class="footer">
+    <p>© اكتشف السعودية - جامعة الملك سعود</p>
+</footer>
 </html>
