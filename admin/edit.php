@@ -13,20 +13,31 @@ $result = mysqli_query($conn, "SELECT * FROM regions WHERE id=$id");
 $region = mysqli_fetch_assoc($result);
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
     $name = $_POST["name"];
     $category = $_POST["category"];
     $city = $_POST["city"];
     $description = $_POST["description"];
+    $features = $_POST["features"];
+    $activities = $_POST["activities"];
     $landmarks = $_POST["landmarks"];
     $image = $_POST["image"];
+    $gallery_image1 = $_POST["gallery_image1"];
+    $gallery_image2 = $_POST["gallery_image2"];
+    $gallery_image3 = $_POST["gallery_image3"];
 
     $query = "UPDATE regions SET 
-              name='$name',
-              category='$category',
-              city='$city',
-              description='$description',
-              landmarks='$landmarks',
-              image='$image'
+                name='$name',
+                category='$category',
+                city='$city',
+                description='$description',
+                features='$features',
+                activities='$activities',
+                landmarks='$landmarks',
+                image='$image',
+                gallery_image1='$gallery_image1',
+                gallery_image2='$gallery_image2',
+                gallery_image3='$gallery_image3'
               WHERE id=$id";
 
     mysqli_query($conn, $query);
@@ -53,46 +64,64 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <li><a href="logout.php">تسجيل الخروج</a></li>
     </ul>
 
-    <button type="button" onclick="toggleMode()" style="margin-right: auto;">🌙</button>
+<button onclick="toggleMode()" class="mode-btn">🌙</button>
 </nav>
 
 <section class="login-box">
-    <form method="POST">
+<form method="POST">
 
-        <label class="form-label">اسم المنطقة</label>
+    <label>اسم المكان / المنطقة</label>
+    <input type="text" name="name" value="<?php echo $region['name']; ?>" required>
 
-        <input type="text" name="name" value="<?php echo $region['name']; ?>" required>
+    <label>الصورة الرئيسية</label>
+    <input type="text" name="image" value="<?php echo $region['image']; ?>" required>
 
+    <label>الوصف</label>
+    <textarea name="description" required><?php echo $region['description']; ?></textarea>
 
-        <label for="category">التصنيف</label>
+   <label class="form-label">الموقع</label>
+<select name="city" required>
+    <option value="" disabled hidden>اختر الموقع</option>
 
-        <select name="category" required>
-            <option value="حديثة" <?php if ($region['category'] == 'حديثة') echo 'selected'; ?>>حديثة</option>
-            <option value="ساحلية" <?php if ($region['category'] == 'ساحلية') echo 'selected'; ?>>ساحلية</option>
-            <option value="تاريخية" <?php if ($region['category'] == 'تاريخية') echo 'selected'; ?>>تاريخية</option>
-        </select>
+    <option value="وسطى" <?php if ($region['city'] == 'وسطى') echo 'selected'; ?>>وسطى</option>
+    <option value="غربية" <?php if ($region['city'] == 'غربية') echo 'selected'; ?>>غربية</option>
+    <option value="جنوبية" <?php if ($region['city'] == 'جنوبية') echo 'selected'; ?>>جنوبية</option>
+    <option value="شمالية" <?php if ($region['city'] == 'شمالية') echo 'selected'; ?>>شمالية</option>
+    <option value="شرقية" <?php if ($region['city'] == 'شرقية') echo 'selected'; ?>>شرقية</option>
+</select>
 
-        <label class="form-label">المدينة</label>
+    <label>التصنيف</label>
+    <select name="category" required>
+        <option value="حديثة" <?php if ($region['category']=='حديثة') echo 'selected'; ?>>حديثة</option>
+        <option value="ساحلية" <?php if ($region['category']=='ساحلية') echo 'selected'; ?>>ساحلية</option>
+        <option value="تاريخية" <?php if ($region['category']=='تاريخية') echo 'selected'; ?>>تاريخية</option>
+    </select>
 
-        <input id="city" type="text" name="city" value="<?php echo $region['city']; ?>" required>
+    <label>المميزات</label>
+    <textarea name="features"><?php echo $region['features']; ?></textarea>
 
-        <label class="form-label">الوصف</label>
+    <label>الأنشطة</label>
+    <textarea name="activities"><?php echo $region['activities']; ?></textarea>
 
-        <textarea name="description"><?php echo $region['description']; ?></textarea>
+    <label>المعالم</label>
+    <textarea name="landmarks"><?php echo $region['landmarks']; ?></textarea>
 
-        <label class="form-label">المعالم</label>
+    <label>صورة المعرض الأولى</label>
+    <input type="text" name="gallery_image1" value="<?php echo $region['gallery_image1']; ?>">
 
-        <textarea name="landmarks"><?php echo $region['landmarks']; ?></textarea>
+    <label>صورة المعرض الثانية</label>
+    <input type="text" name="gallery_image2" value="<?php echo $region['gallery_image2']; ?>">
 
-        <label class="form-label">ارفق صورة</label>
+    <label>صورة المعرض الثالثة</label>
+    <input type="text" name="gallery_image3" value="<?php echo $region['gallery_image3']; ?>">
 
-        <input type="text" name="image" value="<?php echo $region['image']; ?>">
+    <button type="submit">تحديث</button>
 
-        <button type="submit">تحديث</button>
-
-    </form>
-</section>
+</form></section>
 
 <script src="../js/script.js"></script>
 </body>
+<footer class="footer">
+    <p>© اكتشف السعودية - جامعة الملك سعود</p>
+</footer>
 </html>
