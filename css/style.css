@@ -1,34 +1,53 @@
+@font-face {
+    font-family: 'Cairo';
+    src: url('fonts/Cairo-Regular.ttf');
+}
+
+* {
+    font-family: 'Cairo', sans-serif;
+    box-sizing: border-box;
+}
+
 body {
-    font-family: Arial;
     margin: 0;
     background: #f5f5f5;
+    color: #222;
     transition: 0.3s;
+}
+
+h1, h2 {
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+p {
+    font-weight: 400;
+    line-height: 1.8;
+}
+
+button {
+    font-weight: 600;
+    letter-spacing: 0.3px;
 }
 
 /* Navbar */
 .navbar {
     display: flex;
-    /*justify-content: space-between;
-   /* align-items: center; */
-    background: #0a3d2c;
-    color: white;
-    padding: 10px 20px;
-}
-
-.navbar {
-    display: flex;
-   /* justify-content: center;*/
-   /* align-items: center;*/
+    align-items: center;
+    gap: 40px;
     background: #0a3d2c;
     color: white;
     padding: 15px 20px;
-    gap: 40px;
+    font-weight: 600;
+}
+
+.navbar h2 {
+    margin: 0;
 }
 
 .navbar ul {
     list-style: none;
     display: flex;
-   /* justify-content: center;*/
     align-items: center;
     gap: 15px;
     margin: 0;
@@ -49,8 +68,19 @@ body {
     color: #0a3d2c;
 }
 
-.navbar h2 {
-    margin: 0;
+.mode-btn {
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.6);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+.mode-btn:hover {
+    transform: scale(1.05);
 }
 
 /* Hero */
@@ -61,43 +91,97 @@ body {
     color: white;
 }
 
-
-/* Cards */
-.cards {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
+/* Home */
+.home-image {
+    text-align: center;
     padding: 30px;
 }
 
+.home-image img {
+    width: 70%;
+    max-width: 700px;
+    border-radius: 15px;
+}
 
-.card {
+.home-intro {
+    width: 88%;
+    margin: 30px auto;
+    display: flex;
+    gap: 25px;
+    align-items: stretch;
+}
+
+.intro-text {
+    flex: 1;
     background: white;
-    padding: 20px;
-    width: 200px;
-    border-radius: 10px;
+    padding: 35px;
+    border-radius: 14px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    text-align: right;
 }
 
+.intro-text h1 {
+    color: #0a3d2c;
+    font-size: 28px;
+    margin-bottom: 15px;
+}
 
-/* 🌙 Dark Mode */
-.dark {
-    background: #121212;
+.intro-text p {
+    color: #333;
+    font-size: 16px;
+    margin-bottom: 25px;
+}
+
+.explore-btn {
+    display: inline-block;
+    background: #0a3d2c;
     color: white;
+    padding: 12px 22px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
 }
 
-.dark .navbar {
-    background: black;
+.explore-btn:hover {
+    background: #0f5132;
 }
 
-.dark .card {
-    background: #1e1e1e;
+.intro-image {
+    flex: 1.4;
+    min-height: 260px;
+    border-radius: 14px;
+    overflow: hidden;
+    background-image: linear-gradient(rgba(10,61,44,0.55), rgba(10,61,44,0.55)), url("../images/saudi.jpg");
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
+.image-overlay {
+    color: white;
+    text-align: center;
+}
+
+.image-overlay h2 {
+    font-size: 34px;
+    margin-bottom: 10px;
+}
+
+.image-overlay p {
+    font-size: 18px;
+}
+
+/* Gallery Page */
 .filter-buttons {
     text-align: center;
     margin: 25px;
 }
 
-.filter-buttons button {
+.filter-buttons button,
+.filter-buttons a {
+    display: inline-block;
     padding: 10px 18px;
     margin: 5px;
     border: none;
@@ -105,14 +189,15 @@ body {
     color: white;
     border-radius: 8px;
     cursor: pointer;
+    text-decoration: none;
 }
 
 .gallery {
     display: flex;
-    justify-content: center;
-    gap: 20px;
-    padding: 30px;
     flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    padding: 30px;
 }
 
 .region-card {
@@ -122,12 +207,28 @@ body {
     overflow: hidden;
     text-align: center;
     padding-bottom: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
 
 .region-card img {
     width: 100%;
     height: 170px;
     object-fit: cover;
+}
+
+.card-location {
+    color: #526670;
+    font-size: 13px;
+    font-weight: bold;
+    margin: 12px 12px 0;
+}
+
+.region-card h3 {
+    margin: 5px 0 10px;
+}
+
+.region-card p {
+    padding: 0 15px;
 }
 
 .region-card a {
@@ -140,37 +241,136 @@ body {
     text-decoration: none;
 }
 
-.dark .region-card {
-    background: #1e1e1e;
+/* Details Page */
+.details-box {
+    width: 70%;
+    margin: 40px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    text-align: right;
 }
+
+.main-details-img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+.region-location {
+    color: #526670;
+    font-weight: bold;
+    margin-top: -8px;
+    margin-bottom: 15px;
+}
+
+.info-box {
+    background: #eaf3ef;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.info-box h3 {
+    margin-top: 15px;
+    color: #2c5f4f;
+}
+
+
+/* Forms / Login / Add / Edit */
 .login-box {
     width: 350px;
-    margin: 80px auto;
+    margin: 100px auto;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
     background: white;
-    padding: 25px;
-    border-radius: 12px;
+    color: #222;
+    text-align: center;
+}
+
+.login-box label {
+    display: block;
+    text-align: right;
+    margin: 8px 0 5px;
+    font-weight: bold;
+    color: #0a3d2c;
 }
 
 .login-box input,
-.login-box button {
+.login-box select,
+.login-box textarea {
     width: 100%;
     padding: 10px;
     margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 15px;
+    color: #222;
+    background: white;
+}
+
+.login-box textarea {
+    min-height: 90px;
+    resize: vertical;
 }
 
 .login-box button {
-    background: #0a3d2c;
-    color: white;
+    width: 100%;
+    padding: 12px;
+    margin-top: 20px;
     border: none;
-    border-radius: 8px;
+    border-radius: 30px;
+    background: linear-gradient(135deg, #ff9a44, #ff6a00);
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 5px 15px rgba(255,106,0,0.4);
 }
 
-.error-msg {
-    background: #f8d7da;
-    color: #842029;
-    padding: 10px;
-    border-radius: 8px;
+.login-box button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(255,106,0,0.6);
 }
+
+.login-box button:active {
+    transform: scale(0.97);
+}
+
+/* Admin Login Background */
+.login-page {
+    min-height: 100vh;
+    background: linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.25)),
+                url('../images/redSea-bkg-light.jpeg') no-repeat center center/cover;
+}
+
+.login-page .login-box {
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(12px);
+    color: white;
+}
+
+.login-page .login-box label {
+    color: white;
+}
+
+.login-page .login-box input {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(255,255,255,0.55);
+    border-radius: 0;
+    color: white;
+}
+
+.login-page .login-box input::placeholder {
+    color: #ddd;
+}
+
+/* Admin Dashboard */
 .admin-container {
     width: 85%;
     margin: 40px auto;
@@ -212,6 +412,7 @@ body {
 .delete-btn {
     background: #b00020;
 }
+
 .success-msg {
     background: #d1e7dd;
     color: #0f5132;
@@ -220,85 +421,38 @@ body {
     margin-bottom: 15px;
 }
 
-.details-box {
-    width: 70%;
-    margin: 40px auto;
-    background: white;
-    padding: 30px;
-    border-radius: 12px;
-    text-align: center;
-}
-
-.details-box img {
-    width: 350px;
-    max-width: 100%;
-    border-radius: 12px;
-    margin-bottom: 20px;
-}
-
-.dark .details-box {
-    background: #1e1e1e;
-}
-.login-box label {
-    display: block;
-    text-align: right;
-    margin: 8px 0 5px;
-    font-weight: bold;
-    color: #333;
-}
-
-.login-box select,
-.login-box textarea {
-    width: 100%;
+.error-msg {
+    background: #f8d7da;
+    color: #842029;
     padding: 10px;
-    margin: 8px 0;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    font-size: 15px;
-    font-family: Arial;
-    box-sizing: border-box;
+    border-radius: 8px;
 }
 
-.login-box select {
-    height: 45px;
-    background: white;
-}
-
-.login-box textarea {
-    min-height: 90px;
-    resize: vertical;
-}
-
-.dark .login-box {
-    background: #1e1e1e;
-}
-
-.dark .login-box label {
+/* Dark Mode */
+.dark {
+    background: #121212;
     color: white;
 }
+
+.dark .navbar {
+    background: black;
+}
+
+.dark .intro-text,
+.dark .region-card,
+.dark .details-box,
+.dark .login-box,
 .dark .admin-container {
     background: #1e1e1e;
     color: white;
 }
 
-.dark .admin-container table {
-    background: #1e1e1e;
+.dark .intro-text h1,
+.dark .intro-text p {
     color: white;
 }
 
-.dark .admin-container td {
-    background: #1e1e1e;
-    color: white;
-    border-color: #444;
-}
-
-.dark .admin-container th {
-    background: #0a3d2c;
-    color: white;
-    border-color: #444;
-}
-.dark .login-box {
-    background: #1e1e1e;
+.dark .login-box label {
     color: white;
 }
 
@@ -320,98 +474,112 @@ body {
     color: white;
 }
 
-.home-image {
-    text-align: center;
-    padding: 30px;
+.dark .admin-container table,
+.dark .admin-container td {
+    background: #1e1e1e;
+    color: white;
+    border-color: #444;
 }
 
-.home-image img {
-    width: 70%;
-    max-width: 700px;
-    border-radius: 15px;
+.dark .admin-container th {
+    background: #0a3d2c;
+    color: white;
+    border-color: #444;
 }
-/* Home Intro Section */
-.home-intro {
-    width: 88%;
-    margin: 30px auto;
+
+.dark .info-box {
+    background: #24332d;
+}
+
+.dark .info-box h3 {
+    color: #d1e7dd;
+}
+
+.login-page.dark {
+    background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+                url('../images/alula-bkg-dark.jpg') no-repeat center center/cover;
+}
+
+.login-page.dark .login-box {
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(15px);
+}
+
+.login-page.dark .login-box input {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(255,255,255,0.55);
+    color: white;
+}
+/* ===== Details page images fix ===== */
+
+.main-details-img {
+    display: block;
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+.details-gallery {
     display: flex;
-    gap: 25px;
-    align-items: stretch;
+    flex-direction: row;
+    gap: 12px;
+    margin-top: 25px;
 }
 
-.intro-text {
-    flex: 1;
-    background: white;
-    padding: 35px;
-    border-radius: 14px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+.details-gallery img {
+    width: calc((100% - 24px) / 3);
+    height: 120px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* ===== Info box bullets fix ===== */
+
+.info-box {
     text-align: right;
 }
 
-.intro-text h1 {
-    color: #0a3d2c;
-    font-size: 28px;
-    margin-bottom: 15px;
+.info-box ul {
+    list-style-type: disc;
+    list-style-position: outside;
+    direction: rtl;
+    padding-right: 25px;
+    margin: 8px 0 0 0;
 }
 
-.intro-text p {
-    color: #333;
+.info-box li {
+    text-align: right;
+    padding-right: 0;
+    margin-bottom: 6px;
     line-height: 1.8;
-    font-size: 16px;
-    margin-bottom: 25px;
 }
-
-.explore-btn {
-    display: inline-block;
-    background: #0a3d2c;
-    color: white;
-    padding: 12px 22px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.explore-btn:hover {
-    background: #0f5132;
-}
-
-.intro-image {
-    flex: 1.4;
-    min-height: 260px;
-    border-radius: 14px;
-    overflow: hidden;
-    background-image: linear-gradient(rgba(10, 61, 44, 0.55), rgba(10, 61, 44, 0.55)), url("../images/saudi.jpg");
-    background-size: cover;
-    background-position: center;
+.cards {
+    width: 88%;
+    margin: 25px auto;
     display: flex;
+    gap: 20px;
     justify-content: center;
-    align-items: center;
 }
 
-.image-overlay {
-    color: white;
-    text-align: center;
+.card {
+    flex: 1;
+    background: white;
+    padding: 22px;
+    border-radius: 14px;
+    text-align: right;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
+.footer {
+    text-align: center;     
+    padding: 20px;
+    margin-top: 40px;
 
-.image-overlay h2 {
-    font-size: 34px;
-    margin-bottom: 10px;
-}
+    background: #f1f5f3;
+    color: #526670;
 
-.image-overlay p {
-    font-size: 18px;
-}
-
-/* Dark mode for home intro */
-.dark .intro-text {
-    background: #1e1e1e;
-}
-
-.dark .intro-text h1,
-.dark .intro-text p {
-    color: white;
-}
-
-.dark .explore-btn {
-    background: #0f5132;
+    font-size: 14px;
+    font-weight: 500;
 }
