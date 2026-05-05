@@ -23,9 +23,10 @@ $result = mysqli_query($conn, "SELECT * FROM regions");
 <head>
     <meta charset="UTF-8">
     <title>لوحة التحكم</title>
-    <link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/style.css">
+
 </head>
-<body>
+<body id="body">
 
 <nav class="navbar">
     <h2>لوحة التحكم</h2>
@@ -33,6 +34,7 @@ $result = mysqli_query($conn, "SELECT * FROM regions");
         <li><a href="add.php">إضافة محتوى</a></li>
         <li><a href="logout.php">تسجيل الخروج</a></li>
     </ul>
+    <button onclick="toggleMode()" style="margin-right: auto;">🌙</button>
 </nav>
 
 <section class="admin-container">
@@ -72,5 +74,6 @@ $result = mysqli_query($conn, "SELECT * FROM regions");
     </table>
 </section>
 
+<script src="../js/script.js"></script>
 </body>
 </html>
