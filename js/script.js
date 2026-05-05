@@ -1,7 +1,12 @@
 // Apply saved mode when the page opens
 window.onload = function () {
+    const btn = document.querySelector(".mode-btn");
+
     if (localStorage.getItem("mode") === "dark") {
         document.body.classList.add("dark");
+        if (btn) btn.innerHTML = "☀️";
+    } else {
+        if (btn) btn.innerHTML = "🌙";
     }
 };
 
@@ -9,10 +14,14 @@ window.onload = function () {
 function toggleMode() {
     document.body.classList.toggle("dark");
 
+    const btn = document.querySelector(".mode-btn");
+
     if (document.body.classList.contains("dark")) {
         localStorage.setItem("mode", "dark");
+        if (btn) btn.innerHTML = "☀️";
     } else {
         localStorage.setItem("mode", "light");
+        if (btn) btn.innerHTML = "🌙";
     }
 }
 
