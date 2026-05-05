@@ -3,25 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <title>اكتشف السعودية</title>
-    <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/style.css">
+
 </head>
 
 <body id="body">
 
-<!-- 🔝 Navbar -->
+<!--Navbar-->
 <nav class="navbar">
     <h2>🇸🇦 اكتشف السعودية</h2>
     <ul>
         <li><a href="index.php">الرئيسية</a></li>
         <li><a href="gallery.php">معرض المناطق</a></li>
+        <li><a href="admin/login.php">دخول المشرف</a></li>
     </ul>
-    <button onclick="toggleMode()">🌙</button>
+<button onclick="toggleMode()" style="margin-right: auto;">🌙</button>
 </nav>
+<!-- 🏠 Home Intro Section -->
+<section class="home-intro">
 
-<!-- 🏠 Hero Section -->
-<section class="hero">
-    <h1>أهلاً بك 👋</h1>
-    <p>موقع تفاعلي للتعرف على مناطق المملكة العربية السعودية</p>
+
+    <div class="intro-image">
+        <div class="image-overlay">
+            <h2>أهلاً بك 👋</h2>
+            <p>ابدأ رحلتك لاكتشاف مناطق المملكة</p>
+        </div>
+    </div>
+
+    <div class="intro-text">
+        <h1>موقع ثقافي تفاعلي للتعريف بالمملكة</h1>
+
+        <p>
+            استكشف مناطق المملكة العربية السعودية، وتعرّف على أهم المعالم السياحية
+            والثقافية في كل منطقة بطريقة ممتعة وسهلة.
+        </p>
+
+        <a href="gallery.php" class="explore-btn">ابدأ الاستكشاف</a>
+    </div>
+
 </section>
 
 <!-- 📦 Cards -->
