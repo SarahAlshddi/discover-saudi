@@ -1,4 +1,6 @@
 <?php
+    error_reporting(E_ALL);
+ini_set('display_errors', 1);
 include "includes/db.php";
 $result = mysqli_query($conn, "SELECT * FROM regions");
 ?>
@@ -50,7 +52,7 @@ $result = mysqli_query($conn, "SELECT * FROM regions");
         <p><?php echo $row['description'];?></p>
         <a href="details.php?id=<?php echo $row['id']; ?>">عرض التفاصيل</a>
     </div>
-<?php} ?>
+<?php } ?>
 </section>
 
     
