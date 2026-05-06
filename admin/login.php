@@ -40,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
 
     <?php if($error != ""){ ?>
         <p class="error-msg"><?php echo $error; ?></p>
-    <?php} ?>
+    <?php } ?>
 
     <form method="POST">
         <label>اسم المستخدم</label>
